@@ -1,6 +1,6 @@
 ---
 published: true
-date: 2022-01-27 18:19:00 +0100
+date: 2022-02-27 15:19:00 +0100
 last_modified_at: 2022-01-27 18:19:00 +0100
 title: First release of Cliargs.NET
 description: >-
