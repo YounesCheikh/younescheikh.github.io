@@ -7,13 +7,13 @@
   type: twitter
   icon: 'fab fa-twitter'
 -
-  type: email
-  icon: 'fas fa-envelope'
-  noblank: true            # open link in current tab
+  type: stack-overflow
+  icon: 'fab fa-stack-overflow'
+  url:  'https://stackoverflow.com/users/945317/somecode-net'
 -
-  type: rss
-  icon: 'fas fa-rss'
-  noblank: true
+  type: linkedin
+  icon: 'fab fa-linkedin'   # icons powered by <https://fontawesome.com/>
+  url:  'https://www.linkedin.com/in/YounesCheikh/'                  # Fill with your Linkedin homepage
 
 # Uncomment and complete the url below to enable more contact options
 # -
