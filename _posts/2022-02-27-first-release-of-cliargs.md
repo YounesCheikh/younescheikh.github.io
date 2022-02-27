@@ -1,7 +1,7 @@
 ---
 published: true
 date: 2022-02-27 15:19:00 +0100
-last_modified_at: 2022-01-27 18:19:00 +0100
+last_modified_at: 2022-02-27 18:19:00 +0100
 title: First release of Cliargs.NET
 description: >-
   A short introduction to Cliargs.NET library and a quick description about its first release
@@ -13,7 +13,7 @@ tags:
   - CSharp
   - Cliargs
 fullview: true
-toc: false
+toc: true
 ---
 
 For those following me on Twitter, I was sharing some notes about Cliargs.NET during the last weeks, so I ended up by publishing the first release on Nuget last days.
