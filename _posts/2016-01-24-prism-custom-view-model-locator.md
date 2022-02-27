@@ -3,20 +3,20 @@ title: 'Prism: View Model Locator => Custom Convention'
 description: How to implement a custom ViewModelLocator Convention to load view models from other separated assemblies without having the same namespace
 comments: true
 categories: [Development, Tutorials]
-tags: [CSharp, DotNET, HowTo]
+tags: [CSharp, dotnet, HowTo]
 fullview: true
---- 
+---
 
-![PRISM](https://avatars3.githubusercontent.com/u/10503161?v=3){: width="100" .left} I was working on a modular/composite application using [Prism][1] and [MEF][2]. 
-One of the most issues i encountered, was using the Prism ViewModelLocator to bind the view context to the right view model instance. 
-After googling, I had to write my own convention basing on Prism default convention. the new custom convention allows me to bind view models not necessary having the same namespace as the view namespace. also makes it possible to bind these view models event if are in another separated assembly. 
+![PRISM](https://avatars3.githubusercontent.com/u/10503161?v=3){: width="100" .left} I was working on a modular/composite application using [Prism][1] and [MEF][2].
+One of the most issues i encountered, was using the Prism ViewModelLocator to bind the view context to the right view model instance.
+After googling, I had to write my own convention basing on Prism default convention. the new custom convention allows me to bind view models not necessary having the same namespace as the view namespace. also makes it possible to bind these view models event if are in another separated assembly.
 
 ```xml
 	mvvm:ViewModelLocator.AutoWireViewModel="True"
 ```
 
 
-I started by creating an interface named *IMvvmTypeLocator* : 
+I started by creating an interface named *IMvvmTypeLocator* :
 
 ```csharp
 public interface IMvvmTypeLocator
@@ -34,30 +34,30 @@ The interface above has initially 3 methods, i will focus-on and share only the 
 
 ### Implement the interface
 
-I created a class to implement the interface IMvvmTypeLocator, this class has the **AggregateCatalog** as constructor argument. 
-> Note that we are going to create a custom convention to locate the target view models in all registered assembly catalogs 
+I created a class to implement the interface IMvvmTypeLocator, this class has the **AggregateCatalog** as constructor argument.
+> Note that we are going to create a custom convention to locate the target view models in all registered assembly catalogs
 
-#### What the method GetViewModelTypeFromViewType does ? 
+#### What the method GetViewModelTypeFromViewType does ?
 This method starts by applying the default PRISM convention (**GetDefaultViewModelTypeFromViewType** method) to locate the target view model, if no view model located, then apply the custom one.
 
 ##### 1st step
-+ Get the loaded assemblies from the aggregate catalog: 
-    + All the assemblies added to the aggregate catalog in the BootStrapper. 
++ Get the loaded assemblies from the aggregate catalog:
+    + All the assemblies added to the aggregate catalog in the BootStrapper.
 
 ##### 2nd step
 + Locate all non-abstracte classes inheriting from BindableBase class of PRISM (supposed to be a view models).
 
 ##### 3rd step
-+ The type name ends with the extension 'ViewModel' 
++ The type name ends with the extension 'ViewModel'
 + If the view type name ends with the extesnion 'View':
     + Locate the type name without the extension 'ViewModel' equals to the view type name without the extension 'View'.
 + If the view type name doesn't end with the extension 'View':
-    + Locate the type name without the extension 'ViewModel' equals the view type name. 
+    + Locate the type name without the extension 'ViewModel' equals the view type name.
 
 #### Example
-If you added the assembly MyAssembly1.dll (contains the view models inside whatever their namespaces) to the assembly catalog. This custom convention will search inside this assembly for the target view model. 
+If you added the assembly MyAssembly1.dll (contains the view models inside whatever their namespaces) to the assembly catalog. This custom convention will search inside this assembly for the target view model.
 If your view named **Main**View or **Main**:
-The convention will look for all the non-abstract classes ineheriting from BindableBase class, and named **Main**ViewModel. 
+The convention will look for all the non-abstract classes ineheriting from BindableBase class, and named **Main**ViewModel.
 
 ### Source
 
@@ -76,7 +76,7 @@ public class MvvmTypeLocator: IMvvmTypeLocator
 
 	public Type GetViewModelTypeFromViewType(Type sourceType)
 	{
-		// The default prism view model type resolver as Priority 
+		// The default prism view model type resolver as Priority
 		Type targetType = this.GetDefaultViewModelTypeFromViewType(sourceType);
 		if (targetType != null)
 		{
@@ -128,23 +128,23 @@ public class MvvmTypeLocator: IMvvmTypeLocator
 			viewAssemblyName);
 		return Type.GetType(viewModelName);
 	}
-}   
+}
 
 ```
 
 #### Use the custom convention
 
-To use the custom convention, I created a new instance of IMvvmTypeLocator on the application BootStrapper. then i overrided the method ConfigureViewModelLocator. 
+To use the custom convention, I created a new instance of IMvvmTypeLocator on the application BootStrapper. then i overrided the method ConfigureViewModelLocator.
 
 ##### 1st step
-Create field in the bootstrapper : 
+Create field in the bootstrapper :
 
 ```csharp
 private IMvvmTypeLocator mvvmTypeLocator;
 ```
 
 ##### 2nd step
-Create new instance of the class MvvmTypeLocator once the AggregateCatalog is configured: 
+Create new instance of the class MvvmTypeLocator once the AggregateCatalog is configured:
 
 ```csharp
 
@@ -152,9 +152,9 @@ Create new instance of the class MvvmTypeLocator once the AggregateCatalog is co
         {
             base.ConfigureAggregateCatalog();
             this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(Assembly.GetExecutingAssembly()));
-			// Here i add the assembly containing all my view models. 
+			// Here i add the assembly containing all my view models.
             this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(MainViewModel).Assembly));
-			
+
 			// Create the new instnace of MvvmTypeLocator.
             this.mvvmTypeLocator = new MvvmTypeLocator(this.AggregateCatalog);
         }
@@ -162,7 +162,7 @@ Create new instance of the class MvvmTypeLocator once the AggregateCatalog is co
 
 ##### 3rd step
 
-Apply the new convention to the ViewModelLocatorProvider: 
+Apply the new convention to the ViewModelLocatorProvider:
 
 ```csharp
 
@@ -173,7 +173,7 @@ protected override void ConfigureViewModelLocator()
             ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(
                 viewType => this.mvvmTypeLocator.GetViewModelTypeFromViewType(viewType));
         }
-		
+
 ```
 
 

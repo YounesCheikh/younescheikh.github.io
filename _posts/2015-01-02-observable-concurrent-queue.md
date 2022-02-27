@@ -4,21 +4,21 @@ date: '2015-01-02 00:00:00'
 comments: true
 description: ObservableConcurrentQueue based on the classic .Net ConcurrentQueue (System.Collections.Concurrent.ConcurrentQueue) Allows to raise events when the queue content is changed with the same events as ObservableCollection...
 categories: [Development]
-tags: [CSharp, DotNET]
+tags: [CSharp, dotnet]
 fullview: true
 ---
 
 ![ConcurrentQueue]({{ site.ImagesFolder }}/concurrentQueue.png)
 
-I was working with the classic ConcurrentQueue in .Net, It's a good practice to schedule tasks execution asynchronously, 
-however, getting notified when my ConcurrentQueue 
+I was working with the classic ConcurrentQueue in .Net, It's a good practice to schedule tasks execution asynchronously,
+however, getting notified when my ConcurrentQueue
 content is changed was the problem! How can i know if an element has been enqueued, peeked or dequeued? Also how can i be notified when the queue is empty after last element has been dequeued?
 
 To solve the problem of notification, i've developed my custom ConcurrentQueue named ObservableConcurrentQueue inherit from System.Collections.Concurrent.ConcurrentQueue to raise events once the content is changed.
 
 > If you are not familiar with the ConcurrentQueue, [Please read more about it on MSDN](http://msdn.microsoft.com/en-us/library/dd267265)
 
-### Syntax & Example 
+### Syntax & Example
 
 ```csharp
 var observableConcurrentQueue = new ObservableConcurrentQueue<int>();
@@ -30,7 +30,7 @@ The handleMethod ContentChanged event looks as the follwoing:
 ```csharp
 
 private static void OnObservableConcurrentQueueContentChanged(
-            object sender, 
+            object sender,
             NotifyConcurrentQueueChangedEventArgs<int> args)
         {
             if (args.Action == NotifyConcurrentQueueChangedAction.Enqueue)
@@ -69,7 +69,7 @@ Then, Once the handler is defined, we can start adding, deleting or getting elem
 
 The EventArgs object sent by the event contains 2 properties:
 
-#### NotifyConcurrentQueueChangedAction 
+#### NotifyConcurrentQueueChangedAction
 
 + **Enqueue**: If a new item has been enqueued.
 + **Dequeue**: an item has been dequeued.
@@ -87,8 +87,8 @@ The item which the changes applied on. can be null if the notification action is
 
 PM> Install-Package ObservableConcurrentQueue
 
-``` 
- 
+```
+
  [1]: https://github.com/BledSoft/ObservableConcurrentQueue
 
 

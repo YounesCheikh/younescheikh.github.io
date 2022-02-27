@@ -3,14 +3,14 @@ title: 'Set a dto session key when calling WCF proxy'
 description: How to handle all DTOs by setting a session key before sending to WCF host using expression lambda
 comments: true
 categories: [Development, Tutorials]
-tags: [CSharp, DotNET, HowTo]
+tags: [CSharp, dotnet, HowTo]
 fullview: true
 last_modified_at: 2022-01-23 01:10:00 +0100
 published: true
---- 
+---
 
 The power of the following method is avoid implementing the WCF contract client in the client side and duplicate the code for each call.
-Using Reflections and Expression Lambda to handle each message before send it. 
+Using Reflections and Expression Lambda to handle each message before send it.
 The follwing code has 3 steps specified by regions :
 
 - Update the DTO.
@@ -53,7 +53,7 @@ public static Task<RequestResponse> SendRequestAsync(Expression<Func<IUiContract
         }
 ```
 
-### Call the method from another class code: 
+### Call the method from another class code:
 
 ```csharp
   ServiceClient.SendRequestAsync(contract => contract.AddUserAsync(dto));
