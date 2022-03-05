@@ -2,8 +2,13 @@
 title: 'Set a dto session key when calling WCF proxy'
 description: How to handle all DTOs by setting a session key before sending to WCF host using expression lambda
 comments: true
-categories: [Development]
-tags: [CSharp, dotnet, HowTo]
+categories:
+  - Development
+  - .NET
+tags:
+  - csharp
+  - dotnet
+  - tutorial
 fullview: true
 last_modified_at: 2022-01-23 01:10:00 +0100
 published: true

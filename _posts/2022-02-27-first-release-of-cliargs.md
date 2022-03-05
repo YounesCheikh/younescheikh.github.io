@@ -8,10 +8,12 @@ description: >-
 comments: true
 categories:
   - Development
+  - .NET
 tags:
   - dotnet
-  - CSharp
-  - Cliargs
+  - csharp
+  - cliargs
+  - open-source
 fullview: true
 toc: true
 ---

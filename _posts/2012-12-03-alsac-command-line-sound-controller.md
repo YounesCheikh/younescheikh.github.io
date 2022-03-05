@@ -3,8 +3,9 @@ title: "alsac Command Line Sound Controller"
 date: "2012-12-03 00:00:00"
 description: Linux tool to control sound using command line
 comments: true
-categories: [Development]
-tags: [Linux, Scripting]
+categories:
+  - Development
+tags: [linux, scripting]
 fullview: true
 ---
 
@@ -19,7 +20,7 @@ To solve this i wrote some lines quickly to create a simple and easy command lin
 ## Installation
 
 ```shell
-curl https://raw.github.com/cyounes/alsac/master/quickinstall.sh | sh 
+curl https://raw.github.com/cyounes/alsac/master/quickinstall.sh | sh
 ```
 
 ## Usage
@@ -28,7 +29,7 @@ $ alsac [-|+] [value]
 ```
 
 ```shell
-$ alsac [value] 
+$ alsac [value]
 ```
 
 ```shell
@@ -38,13 +39,13 @@ $ alsac [mute | unmute]
 ## Examples
 
 
-+ `alsac - 10`  : decrease sound of 10% 
++ `alsac - 10`  : decrease sound of 10%
 
-+ `alsac + 18 ` : increase sound of 18% 
++ `alsac + 18 ` : increase sound of 18%
 
-+ `alsac 45`    : set sound to 45% 
++ `alsac 45`    : set sound to 45%
 
-+ `alsac mute`  : mute sound 
++ `alsac mute`  : mute sound
 
 + `alsac unmute`: unmute sound
 

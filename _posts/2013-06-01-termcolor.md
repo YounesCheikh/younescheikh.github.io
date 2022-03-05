@@ -2,9 +2,11 @@
 title: Termcolor Library
 comments: true
 description: C/C++ library used for ANSII Color formatting for Linux/Mac terminal output.
-categories: [Development]
-tags: [C-Programming]
+categories:
+  - Development
+tags: [c]
 fullview: true
+toc: true
 ---
 
 TermColor Is a C library used for ANSII Color formatting for Linux/Mac terminal output.
@@ -14,7 +16,7 @@ TermColor Is a C library used for ANSII Color formatting for Linux/Mac terminal 
 * [Termcolor users documentation](#termcolor-users-documentation) &larr; &hearts;
 * [Termcolor developers documentation](#termcolor-developers-documentation)
 
-![Termcolor Library]({{ site.ImagesFolder }}/termcolor/example_termcolor.png) 
+![Termcolor Library]({{ site.ImagesFolder }}/termcolor/example_termcolor.png)
 
 ## Installation
 There are two ways to install `termcolor.h` library:
@@ -22,7 +24,7 @@ There are two ways to install `termcolor.h` library:
 ### 1. Install into gcc includes folder
 &rarr; <code>need root permissions</code>
 ```shell
-curl https://raw.github.com/cyounes/termcolor/master/quickinstall.sh | sh 
+curl https://raw.github.com/cyounes/termcolor/master/quickinstall.sh | sh
 ```
 include it in your code:
 ```c
@@ -31,12 +33,12 @@ include it in your code:
 ### 2. download termcolor.h in your project folder
 get `termcolor.h` file:
 ```shell
-curl -O https://raw.github.com/cyounes/termcolor/master/termcolor.h 
+curl -O https://raw.github.com/cyounes/termcolor/master/termcolor.h
 ```
 include it in your code then start use the libray :)
 ```shell
 #include "termcolor.h"
-```	
+```
 
 ## Termcolor users documentation
 
@@ -46,7 +48,7 @@ include it in your code then start use the libray :)
 
 ```c
 cprint("${bd}Hello world!${/bd}\n");
-```	
+```
 
 In this example, the <code>${bd}</code> tag tells the program to <b>START</b> showing text in bold and the <b>${/bd}</b> tag tells the program to <b>STOP</b> showing text in bold.
 
@@ -54,11 +56,11 @@ In this example, the <code>${bd}</code> tag tells the program to <b>START</b> sh
 
 ```c
 cprint("${ul}Hello world!${/ul}\n");
-```	
+```
 
 In the second example, the <code class="yel">${ul}</code> tag tells the program to <code>START</code> underlining text and the <code class="yel">${/ul}</code> tag tells the program to <code>STOP</code> underlining the text.
 
-### Easy to use? 
+### Easy to use?
 <p>
 The principle of using this function is roughly the principle of html tag, every time you open a tag you must close it after inserting a code.
 Except it is not quite the same, as you will see in the following examples…
@@ -66,7 +68,7 @@ Except it is not quite the same, as you will see in the following examples…
 ### Tags:
 
 <h4> Text decoration </h4>
-<table> 
+<table>
 <thead>
     <tr>
         <th>Tag Name:</th>
@@ -82,7 +84,7 @@ Except it is not quite the same, as you will see in the following examples…
 <tr><td><p><code class="option">${/bl}</code></p></td><td><p>Stop blink</p></td></tr>
 </tbody>
 </table>
-		
+
 <h4> Colors: </h4>
 <h5> Effects: </h5>
 <table>
@@ -101,7 +103,7 @@ Except it is not quite the same, as you will see in the following examples…
 
 ##### Foreground and Background colors:
 
-###### Background color tags: 
+###### Background color tags:
 <table>
 <thead>
 <tr><th>Tag name:</th><th>What it does:</th></tr>
@@ -137,14 +139,14 @@ Except it is not quite the same, as you will see in the following examples…
 </tbody>
 </table>
 
-### autoResetStyle(): 
+### autoResetStyle():
 This function has one `BOOLEAN` argument, when it take the `TRUE` variable, you need to restart all effects and decoration you did in the previous `cprint()`.
 Otherwise, if you forget to close the tags in the previous `cprint()` , the next one continue applying all the effects and decorations that you have forgot to close.
 
 * Example:
 
 * _auto reset_ :
-	
+
 ```c
 autoResetStyle(TRUE);
 cprint("${bd}Hello ");
@@ -153,17 +155,17 @@ cprint("world\n");
 this will display **Hello** in bold and world in normal weight.
 
 * _don't auto reset_ :
-	
+
 ```c
 autoResetStyle(FALSE);
 cprint("${bd}Hello ");
 cprint("world\n");
 ```
 this will display both **Hello** and **world** in bold
-	
+
 ### cprint() and variables:
 
-Currently, <code class="yel">cprint()</code> ~~must exactly take one arguments (char *)~~ takes more than one argument, 
+Currently, <code class="yel">cprint()</code> ~~must exactly take one arguments (char *)~~ takes more than one argument,
 however it takes only the `int %d` , `char %c` and strings `char * %s` , it may prints anything wrong
 if you give a long or float argument.
 in the next versions may be developed to take all the data types possible which is the case of `printf()` .
@@ -171,7 +173,7 @@ in the next versions may be developed to take all the data types possible which 
 So to print a variable of another data type using effects,
 you must disable `auto reset` by doing : `autoResetStyle(FALSE);`
 then put the printf(args) between tow cprint()s.
-#### Example: 
+#### Example:
 
 ```c
 long a=10, b=10;
@@ -189,11 +191,11 @@ cprint("${/bd}\n");
 
 
 ### BOOLEAN ?
-By including **termcolor** library in your code, you don't need to include the ~~**stdbool**~~ library. However you need to write the boolean keywords in uppercase characters:  ***TRUE***  and ***FALSE*** 
+By including **termcolor** library in your code, you don't need to include the ~~**stdbool**~~ library. However you need to write the boolean keywords in uppercase characters:  ***TRUE***  and ***FALSE***
 
 ### Functions:
 
-#### Colors: 
+#### Colors:
 
 + `bgColor(COLOR)` : set the background color using the available colors.
 
@@ -207,21 +209,21 @@ fgColor(DEFAULT);
 #### Text decorations:
 
 + `textBold(BOOLEAN)` : enable or disable text bolding for the next output:
-```c 
-textBold(TRUE); 
+```c
+textBold(TRUE);
 textBold(FALSE);
 ```
 
 + `textBlink(BOOLEAN)` : enable or disable text blinking for the next output:
-```c 
-textBlink(TRUE); 
+```c
+textBlink(TRUE);
 textBlink(FALSE);
 ```
 
 + `colorReverse(BOOLEAN)`: enable or disable colors reversing for the next output:
 
-```c 
-colorReverse(TRUE); 
+```c
+colorReverse(TRUE);
 colorReverse(FALSE);
 ```
 
@@ -243,7 +245,7 @@ bgColor(RED);
 printf("text with RED Background");
 ```
 ###### Result:
-![termcolor red background](https://raw.github.com/cyounes/termcolor/master/examples/red_background.png) 
+![termcolor red background](https://raw.github.com/cyounes/termcolor/master/examples/red_background.png)
 -
 ##### Default background + Red foreground:
 
@@ -328,18 +330,18 @@ int main() {
 	printf("Using this library allow the developer to decorate \
 the output of its console application.\n\n");
 	printf("Some Examples: \n\n");
-	
+
 	bgColor(RED); // Background RED and not "RED" !
 	printf("text with RED Background\n\n");
 	bgColor(DEFAULT); // Default Background Color
-	fgColor(RED); // RED Foreground color 
+	fgColor(RED); // RED Foreground color
 	printf("text with RED Foreground\n\n");
 	bgColor(RED);
 	fgColor(YELLOW);
 	printf("YELLOW text in RED Background\n\n");
 	textBold(TRUE); // Bold Text
 	printf("YELLOW and BOLD text in RED Background\n\n");
-	textUnderline(TRUE); // Underlined text 
+	textUnderline(TRUE); // Underlined text
 	bgColor(DEFAULT);
 	printf("YELLOW and BOLD and Underlined text\n\n");
 	fgColor(DEFAULT);
@@ -348,8 +350,8 @@ the output of its console application.\n\n");
 	colorReverse(FALSE);
 	textBlink(TRUE);
 	printf("BLINKING text with default foreground and default background\n\n");
-	
-	resetStyle(); // Reset all as default 
+
+	resetStyle(); // Reset all as default
 	printf("Now Examples using High Intensity\n\n");
 	highFgIntensity(TRUE);
 	highBgIntensity(TRUE);
@@ -363,10 +365,10 @@ the output of its console application.\n\n");
 	printf("YELLOW text in RED Background\n\n");
 	textBold(TRUE);
 	printf("YELLOW and BOLD text in RED Background\n\n");
-	
+
 	resetStyle();
 	printf("Simple Text :D \n\n");
-	
+
     return 0;
 }
 

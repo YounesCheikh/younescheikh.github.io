@@ -92,7 +92,7 @@ avatar: '/Content/Images/avatar-YounesCheikh.PNG'
 toc: true
 
 comments:
-  active: 'disqus'         # The global switch for posts comments, e.g., 'disqus'.  Keep it empty means disable
+  active: 'giscus'         # The global switch for posts comments, e.g., 'disqus'.  Keep it empty means disable
   # The active options are as follows:
   disqus:
     shortname: 'cyounes'    # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
@@ -102,12 +102,12 @@ comments:
     issue_term:   # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
-    repo:             # <gh-username>/<repo>
-    repo_id:
-    category:
-    category_id:
+    repo: YounesCheikh/younescheikh.github.io # <gh-username>/<repo>
+    repo_id: R_kgDOG6o9fg
+    category: Announcements
+    category_id: DIC_kwDOG6o9fs4CN9O7
     mapping:          # optional, default to 'pathname'
-    input_position:   # optional, default to 'bottom'
+    input_position: top   # optional, default to 'bottom'
     lang:             # optional, default to the value of `site.lang`
 
 # Self-hosted static assets, optional › https://github.com/cotes2020/chirpy-static-assets

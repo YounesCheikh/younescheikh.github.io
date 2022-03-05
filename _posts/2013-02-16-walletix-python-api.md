@@ -2,8 +2,10 @@
 title: Walletix Python API
 comments: true
 description: "A Python API for <strike>Walletix online payment service</strike> (Closed)"
-categories: [Development]
-tags: [Python]
+categories:
+  - Development
+tags:
+  - python
 ---
 
 ![Walletix]({{ site.ImagesFolder }}/walletix/walletixpython.png)
@@ -15,10 +17,10 @@ Walletix API For Python Applications
 
 > import walletix.py module and start using <code>Walletix</code> services :-)
 
->THIS VERSION WORKS ONLY WITH Python >=2.6 
+>THIS VERSION WORKS ONLY WITH Python >=2.6
 {: .prompt-warning}
 
-## How to use? 
+## How to use?
 ### Example:
 #### Identify:
 
@@ -51,7 +53,7 @@ if gpc.status == 1:
 		print(dp.result)
 ```
 
-#### See full example: 
+#### See full example:
 ```python
 #!/usr/bin/python
 # -*- coding: utf-8 -*-

@@ -1,18 +1,20 @@
 ---
-title: How to use JFileChooser properly 
+title: How to use JFileChooser properly
 date: '2012-11-25 00:00:00'
 description: How to use JFileChooser on Java/Swing <strike>properly to open/save file</strike> -I'm not developing in Java anymore!-
 comments: true
-categories: [Tutorials]
-tags: [Java, Swing, HowTo]
+categories:
+  - How To
+  - Java
+tags: [java, swing, tutorial]
 ---
 
 In this tutorial, I try to explain you how to use JFileChooser API to make it easy
-for the user to choose a file. 
+for the user to choose a file.
 
 <br />
 
-![JFileChooser select file to open ]({{ site.ImagesFolder }}/jfilechooser_open.jpg) 
+![JFileChooser select file to open ]({{ site.ImagesFolder }}/jfilechooser_open.jpg)
 
 <br />
 
@@ -29,11 +31,11 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 public class MyWindow extends JFrame {
-    
+
     public MyWindow() {
         initComponents();
     }
-    
+
     private void initComponents() {
         setSize(300, 60);
         setTitle("My Window");
@@ -41,7 +43,7 @@ public class MyWindow extends JFrame {
         Container c = getContentPane();
         c.setLayout(new FlowLayout());
     }
-    
+
     public static void main(String[] args) {
         MyWindow window = new MyWindow();
         window.setVisible(true);
@@ -52,7 +54,7 @@ public class MyWindow extends JFrame {
 
 if you run the previous lines of java , you will get a new empty window titled: "My Window" with size: (300, 60)
 
-## Add browse button and path textfiled 
+## Add browse button and path textfiled
 
 now, we have created a new window and need to add a new button named "Browse", when you press this button you will get the filechooser window. after choosing the file and approve selection, the full path of the selected file should be on the textfild
 
@@ -61,7 +63,7 @@ the code should be as the following:
 
 ```java
 
-    ... 
+    ...
     private JButton btn ;
     ...
     private void initComponents() {
@@ -78,7 +80,7 @@ the code should be as the following:
 ```
 
 ### Add the JTextField
-In this textfield we will put the full path of the selected file by the user using `JFileChooser` 
+In this textfield we will put the full path of the selected file by the user using `JFileChooser`
 
 ```java
 
@@ -115,8 +117,8 @@ first, we will add two methods:
 
 ```java
 private void btnBrowseActionPerformed(java.awt.event.ActionEvent evt) {
-  textField.setText("button pressed");  
-}  
+  textField.setText("button pressed");
+}
 ```
 
 the second method is where we involve the event to the browse button
@@ -133,7 +135,7 @@ private void simpleMethod() {
 
 Now you have window with button and text field, when you click on button the program print `"Button Pressed"` on the text field.
 
-###### the full code: 
+###### the full code:
 
 ```java
 
@@ -150,16 +152,16 @@ import javax.swing.JTextField;
  * @author cyounes
  */
 public class MyWindow extends JFrame {
-    
+
     private JButton btn;
     private JTextField textField;
     private JFileChooser fc;
-    
+
     public MyWindow() {
         initComponents();
         simpleMethod();
     }
-    
+
     private void initComponents() {
         setSize(300, 60);
         setTitle("My Window");
@@ -173,7 +175,7 @@ public class MyWindow extends JFrame {
         textField.setPreferredSize(new Dimension(160, 20));
         c.add(textField);
     }
-    
+
     private void simpleMethod() {
         btn.addActionListener(new java.awt.event.ActionListener() {
             @Override
@@ -182,10 +184,10 @@ public class MyWindow extends JFrame {
             }
         });
     }
-    
+
     private void btnBrowseActionPerformed(java.awt.event.ActionEvent evt) {
         textField.setText("Button Pressed");
-    }    
+    }
 
     public static void main(String[] args) {
         MyWindow window = new MyWindow();
@@ -200,7 +202,7 @@ Now, after get the action performed works correctly, we need just to edit the me
 
 ```java
 
-    private void btnBrowseActionPerformed(java.awt.event.ActionEvent evt) {                                               
+    private void btnBrowseActionPerformed(java.awt.event.ActionEvent evt) {
         if (fc == null) {
             fc = new JFileChooser("$HOME");
         }
@@ -211,7 +213,7 @@ Now, after get the action performed works correctly, we need just to edit the me
         // Case 1: the user selects file and clicks on open button
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             textField.setText(fc.getSelectedFile().getPath());
-        } 
+        }
         // Case 2: the user clicks on cancel
         else {
             textField.setText("");
@@ -219,11 +221,11 @@ Now, after get the action performed works correctly, we need just to edit the me
 
         // Reset the file chooser for the next time it's shown.
         fc.setSelectedFile(null);
-        
-    }  
+
+    }
 ```
 
-After clicking `browse button`: 
+After clicking `browse button`:
 
 ![JFileChooser]({{ site.ImagesFolder }}/tuto_select_file.jpg )
 
@@ -232,16 +234,16 @@ after selecting file:
 ![file selected]({{ site.ImagesFolder }}/tuto_getpath.jpg)
 
 
-now you get your `JFileChooser` works correctly. 
+now you get your `JFileChooser` works correctly.
 The full code on gist:
-###### Using Git: 
+###### Using Git:
 ```shell
 git clone git://gist.github.com/4144967.git
 ```
 
 ###### Using Curl:
 ```shell
-curl -O https://raw.github.com/gist/4144967/f2be051ef0d66a59fa315a852bb387acf89fe2da/MyWindow.java 
+curl -O https://raw.github.com/gist/4144967/f2be051ef0d66a59fa315a852bb387acf89fe2da/MyWindow.java
 ```
 
 ###### Copy:
@@ -257,16 +259,16 @@ import javax.swing.JTextField;
 
 
 public class MyWindow extends JFrame {
-    
+
     private JButton btn ;
     private JTextField textField;
     private JFileChooser fc;
-    
+
     public MyWindow() {
         initComponents();
         simpleMethod();
     }
-    
+
     private void initComponents() {
         setSize(300, 60);
         setTitle("My Window");
@@ -280,7 +282,7 @@ public class MyWindow extends JFrame {
         textField.setPreferredSize(new Dimension(160, 20));
         c.add(textField);
     }
-    
+
     private void simpleMethod() {
         btn.addActionListener(new java.awt.event.ActionListener() {
             @Override
@@ -289,8 +291,8 @@ public class MyWindow extends JFrame {
             }
         });
     }
-    
-    private void btnBrowseActionPerformed(java.awt.event.ActionEvent evt) {                                               
+
+    private void btnBrowseActionPerformed(java.awt.event.ActionEvent evt) {
         if (fc == null) {
             fc = new JFileChooser(".");
         }
@@ -307,8 +309,8 @@ public class MyWindow extends JFrame {
 
         // Reset the file chooser for the next time it's shown.
         fc.setSelectedFile(null);
-        
-    }  
+
+    }
     public static void main(String[] args) {
         MyWindow window = new MyWindow();
         window.setVisible(true);
@@ -316,7 +318,7 @@ public class MyWindow extends JFrame {
 }
 ````
 
-## <del>Next Tutorial</del> No more tutorials in Java 
+## <del>Next Tutorial</del> No more tutorials in Java
 
 > Since 2012 I'm not developping in Java anymore 😟
 {: .prompt-warning }
@@ -328,5 +330,5 @@ public class MyWindow extends JFrame {
 + <del>Preview selected image on file chooser before opening. </del>
 
 
- 
+
 

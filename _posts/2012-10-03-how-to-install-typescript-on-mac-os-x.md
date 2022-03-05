@@ -3,8 +3,9 @@ title: How to install typescript on mac os x
 date: '2012-10-03 00:00:00'
 description: Mini-Tutorial explains how to install typeScript on Mac OS X easily
 comments: true
-categories: [Tutorials]
-tags: [MacOS, HowTo]
+categories:
+  - How To
+tags: [macos, tutorial]
 ---
 
 
@@ -13,7 +14,7 @@ tags: [MacOS, HowTo]
 
 This article explains how to install [TypeScript][2] on Mac OS X easily.
 
-The following steps are tested on OS X Mountain Lion 10.8.2 
+The following steps are tested on OS X Mountain Lion 10.8.2
 
 ## 1. install [Homebrew][3]:
 
@@ -50,11 +51,11 @@ In your editor, type the following JavaScript code in greeter.ts:
 ```typescript
 function greeter(person) {
   return "Hello, " + person;
-}    
-var user = "Jane User";   
+}
+var user = "Jane User";
 document.body.innerHTML = greeter(user);
-```  
-    
+```
+
 
 ## 6. Compile the code:
 

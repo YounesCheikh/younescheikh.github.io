@@ -2,8 +2,10 @@
 title: Basicmenu Library
 comments: true
 description: An open source library coded in C, allows the programmer to create and display a menu easily in his/her console application on linux and mac os x, works with C/C++ programs.
-categories: [Development]
-tags: [C-Programming]
+categories:
+  - Development
+  - C Programming
+tags: [c]
 fullview: true
 ---
 
@@ -27,15 +29,15 @@ There is no installation required, you need just to download the basicmenu.h fil
 To use this library , you have just to learn about some basic functions
 
 ### 1. Start the basic menu library
-First you need to tell the program that uses the library 
+First you need to tell the program that uses the library
 to do this, invoke `startBasicMenu()` function in the beginning of the main.
 
- 
+
 ### 2. Create and initialize a new menu
 
 To create a new menu you need to declare it with its type:
 ```c
-custom_Menu* mymenu; 
+custom_Menu* mymenu;
 ```
 To initialize it with the `init_new_menu()` function:
 ```c

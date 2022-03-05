@@ -8,11 +8,11 @@ description: >-
   Section in my account page.
 comments: true
 categories:
-  - Tutorials
+  - How To
 tags:
-  - PHP
-  - WordPress
-  - HowTo
+  - php
+  - wordpress
+  - tutorial
 fullview: true
 toc: true
 ---

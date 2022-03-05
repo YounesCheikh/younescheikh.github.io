@@ -2,8 +2,11 @@
 title: "[Photo] Rue Gaubil, Gaillac"
 date: '2012-09-27 00:00:00'
 comments: true
-categories: [Photography]
-tags: [Photo,  France]
+categories:
+  - Photography
+tags:
+  - photo
+  - france
 published: false
 ---
 

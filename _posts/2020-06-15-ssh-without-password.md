@@ -2,15 +2,19 @@
 title: 'How to connect to remote SSH Server without a password'
 description: A short tutorial explaining how to connect to configure SSH to get connected to a remote server without been asked for a password for each connection.
 comments: true
-categories: [Tutorials]
-tags: [Quick-Note, HowTo]
+categories:
+  - How To
+tags:
+  - quick-note
+  - tutorial
+  - ssh
 fullview: true
 published: true
 ---
 
-I'm writing this post just as a quick note to save somewhere the steps to follow in order to get connected to a remote SSH server without have to enter a user password for each connection. 
+I'm writing this post just as a quick note to save somewhere the steps to follow in order to get connected to a remote SSH server without have to enter a user password for each connection.
 
-I came across this when started using the Remote-SSH extension for Visual Studio Code, then for each modification I was asked to enter a password!  
+I came across this when started using the Remote-SSH extension for Visual Studio Code, then for each modification I was asked to enter a password!
 
 In the following example, I'm connecting from a Windows 10 as a Client, to Ubuntu as SSH Server:
 
@@ -48,34 +52,34 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
-Once the key is generated, we need now to save the public key in Autorized Keys of the remote SSH server. 
+Once the key is generated, we need now to save the public key in Autorized Keys of the remote SSH server.
 
-Execute the following command to create the folder `.ssh` using SSH: 
+Execute the following command to create the folder `.ssh` using SSH:
 
 ```posh
 C:\Users\user>ssh user@sshserver mkdir -p .ssh
 user@sshserver's password:
 ```
 
-now, because I'm using Windows, I just copy past the content of the generated file `c:\users\user\id_rsa.pub` to the remote file `~/.ssh/autorized_keys`  
+now, because I'm using Windows, I just copy past the content of the generated file `c:\users\user\id_rsa.pub` to the remote file `~/.ssh/autorized_keys`
 
-If you're using Linux as a client, you have just to use the awesome command `cat` to "copy/past" from command line: 
+If you're using Linux as a client, you have just to use the awesome command `cat` to "copy/past" from command line:
 
 ```shell
 user@sshclient:~> cat .ssh/id_rsa.pub | ssh user@sshserver 'cat >> .ssh/authorized_keys'
-user@sshserver's password: 
+user@sshserver's password:
 ```
 
-now, if all is fine, when you try to connect from SSH command line, you'll not be asked for the password anymore: 
+now, if all is fine, when you try to connect from SSH command line, you'll not be asked for the password anymore:
 
 ```posh
 C:\Users\user>ssh user@sshserver
 Welcome to Ubuntu 20.04 LTS (GNU/Linux 5.4.0-37-generic x86_64)
 
 Last login: Mon Jun 15 07:29:16 2020 from 192.168.1.10
-user@sshserver:~$ 
+user@sshserver:~$
 ```
 
-That's all! 
+That's all!
 
 
