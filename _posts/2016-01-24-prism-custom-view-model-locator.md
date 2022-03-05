@@ -10,6 +10,7 @@ tags:
   - dotnet
   - tutorial
 fullview: true
+toc: true
 ---
 
 ![PRISM](https://avatars3.githubusercontent.com/u/10503161?v=3){: width="100" .left} I was working on a modular/composite application using [Prism][1] and [MEF][2].

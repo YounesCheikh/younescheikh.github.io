@@ -104,8 +104,8 @@ comments:
   giscus:
     repo: YounesCheikh/younescheikh.github.io # <gh-username>/<repo>
     repo_id: R_kgDOG6o9fg
-    category: Announcements
-    category_id: DIC_kwDOG6o9fs4CN9O7
+    category: Comments
+    category_id: DIC_kwDOG6o9fs4CN9P3
     mapping:          # optional, default to 'pathname'
     input_position: top   # optional, default to 'bottom'
     lang:             # optional, default to the value of `site.lang`
