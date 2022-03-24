@@ -1,6 +1,6 @@
 ---
 title: Projects
-icon: fa-solid fa-diagram-project
+icon: fa fa-cubes
 order: 1
 ---
 
