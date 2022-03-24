@@ -1,6 +1,6 @@
 ---
 title: Projects
-icon: fas fa-info-circle
+icon: fas fa-diagram-project
 order: 1
 ---
 
