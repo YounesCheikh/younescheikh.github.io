@@ -21,10 +21,10 @@ timezone: Europe/Paris
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: SomeCode.NET                          # the main title
+title: Younes's blog                          # the main title
 
 
-tagline: Some Lines of code in .NET by Younes Cheikh   # it will display as the sub-title
+tagline: Personal blog by Younes Cheikh   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   Some Lines of code in .NET and much more notes shared on the personal blog of Younes Cheikh
